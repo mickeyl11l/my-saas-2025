@@ -9,11 +9,6 @@ import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'SaaS Starter 2025 – Next.js 14 + Supabase + Stripe',
-  description: 'Production-ready boilerplate with auth, billing, dashboard & beautiful design',
-}
-
 export default function RootLayout({
   children,
 }: {
