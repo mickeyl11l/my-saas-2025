@@ -2,93 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Топовые эффекты 2025 года */
 @layer utilities {
-  .animate-spin-slow {
-    animation: spin 8s linear infinite;
-  }
-
-  .bg-grid-white\/\[0\.02\] {
-    background-image: 
-      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
   .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
   }
-
-  .neumorphic {
-    background: #0f0f1e;
-    box-shadow: 
-      20px 20px 40px #0a0a14,
-      -20px -20px 40px #141428;
-  }
-
-  .neumorphic-inset {
-    box-shadow: 
-      inset 10px 10px 20px #0a0a14,
-      inset -10px -10px 20px #141428;
-  }
-
-  .neumorphic-hover {
-    box-shadow: 
-      10px 10px 20px #0a0a14,
-      -10px -10px 20px #141428;
-  }
-
-  .gradient-text {
-    @apply bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent;
-  }
-
   .floating {
     animation: float 6s ease-in-out infinite;
   }
-
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
+    0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
-  }
-}
-
-@layer base {
-  :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --radius: 1rem;
-  }
-
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground min-h-screen;
-    background-image: radial-gradient(circle at 50% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%);
   }
 }
