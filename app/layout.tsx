@@ -2,12 +2,13 @@
 
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
 
 export default function RootLayout({
   children,
@@ -15,12 +16,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+    <html lang="ru" suppressHydrationWarning className={inter.variable}>
+      <body className="font-sans bg-black text-white min-h-screen">
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>
