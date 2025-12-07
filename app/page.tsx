@@ -5,16 +5,24 @@ import { M, MS, MH1, MP } from '@/components/Motion'
 import { Sparkles, Zap, Shield, Rocket, Star, Users, Check } from 'lucide-react'
 
 export default function Home() {
+  const features = [
+    { icon: Zap, title: "3D Космический Hero", desc: "Вау-эффект с первых секунд" },
+    { icon: Shield, title: "Glassmorphism UI", desc: "Выглядит дорого и современно" },
+    { icon: Rocket, title: "Конфетти при покупке", desc: "Эмоция = покупка" },
+    { icon: Users, title: "Готов к командам", desc: "Приглашения, роли, биллинг" },
+    { icon: Star, title: "Плавные анимации", desc: "Framer Motion везде" },
+    { icon: Check, title: "Идеально на мобильных", desc: "Адаптивный и быстрый" },
+  ]
+
   return (
     <>
-      {/* 3D КОСМИЧЕСКИЙ HERO 2025 */}
+      {/* 3D КОСМИЧЕСКИЙ HERO */}
       <MS className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-blue-950 to-black" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-purple-800/40 via-transparent to-transparent animate-pulse" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-800/40 via-transparent to-transparent animate-pulse" />
         <div className="absolute inset-0 bg-grid-white/[0.04] bg-[size:60px_60px]" />
 
-        {/* Звёзды */}
         {[...Array(80)].map((_, i) => (
           <div
             key={i}
@@ -30,7 +38,6 @@ export default function Home() {
 
         <M className="relative z-10 text-center px-6 max-w-7xl mx-auto">
           <Sparkles className="h-32 w-32 mx-auto mb-12 text-yellow-300 floating drop-shadow-glow" />
-          
           <MH1 className="text-7xl md:text-9xl font-black mb-10 leading-tight">
             <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Launch Your SaaS
@@ -38,32 +45,23 @@ export default function Home() {
             <br />
             <span className="text-white/90">in Days</span>
           </MH1>
-
           <MP className="text-2xl md:text-4xl text-gray-300 mb-16 font-light max-w-4xl mx-auto">
             Самый красивый и современный стартер 2025 года с 3D-эффектами, glassmorphism и магией
           </MP>
-
           <ConfettiButton className="text-2xl md:text-3xl px-16 py-8 rounded-3xl font-bold shadow-2xl hover:shadow-purple-500/40">
-            Купить за $149
+            Купить за $149 →
           </ConfettiButton>
         </M>
       </MS>
 
-      {/* СЕКЦИЯ ФИЧ — СТЕКЛЯННЫЕ КАРТОЧКИ */}
+      {/* ФИЧИ */}
       <section className="py-32 relative">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-20 text-white">
             Почему это покупают
           </h2>
           <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {[
-              { icon: Zap, title: "3D Космический Hero", desc: "Вау-эффект с первых секунд" },
-              { icon: Shield, title: "Glassmorphism UI", desc: "Выглядит дорого и современно" },
-              { icon: Rocket, title: "Конфетти при покупке", desc: "Эмоция = покупка" },
-              { icon: Users, title: "Готов к командам", desc: "Приглашения, роли, биллинг" },
-              { icon: Star, title: "Плавные анимации", desc: "Framer Motion везде" },
-              { icon: Check, title: "Идеально на мобильных", desc: "Адаптивный и быстрый" },
-            ].map((f((f, i) => (
+            {features.map((f, i) => (
               <M
                 key={i}
                 initial={{ opacity: 0, y: 60 }}
