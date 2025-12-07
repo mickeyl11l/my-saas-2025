@@ -1,74 +1,72 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Check, Zap, Shield, Sparkles, Rocket, Star, Users } from 'lucide-react'
-import { MotionSection, MotionH1, MotionP, MotionDiv } from '@/components/MotionWrapper'
+import { motion } from 'framer-motion'
+import { ConfettiButton } from '@/components/ConfettiButton'  // Добавь этот файл ниже
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <MotionSection 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="relative overflow-hidden bg-gradient-to-b from-background to-muted/50 pt-32 pb-24"
-      >
-        <div className="container mx-auto px-6 text-center">
-          <MotionDiv 
-            initial={{ opacity: 0, y: 50 }}
+      {/* 3D Parallax Hero with Glassmorphism */}
+      <section className="relative overflow-hidden min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_top, #1b1b4d 0%, #000000 100%)]">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px]" />
+        <motion.div 
+          className="absolute inset-0" 
+          style={{ background: 'radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.2) 0%, transparent 50%)' }}
+          animate={{
+            scale: [1, 1.05, 1],
+            opacity: [0.8, 1, 0.8],
+          }}
+          transition={{ duration: 5, repeat: Infinity }}
+        />
+        <div className="container mx-auto px-6 text-center z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-8"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="rounded-3xl p-10 bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl max-w-4xl mx-auto"
           >
-            <Sparkles className="h-4 w-4" />
-            2025 Boilerplate – Next.js 14 + Supabase + Stripe
-          </MotionDiv>
-          <MotionH1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mx-auto max-w-5xl text-5xl font-bold tracking-tight md:text-7xl"
-          >
-            Launch Your SaaS in Days,
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Not Months</span>
-          </MotionH1>
-          <MotionP 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground"
-          >
-            Production-ready starter kit with authentication, payments, dashboard, team management, dark mode and stunning design.
-          </MotionP>
-          <MotionDiv 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button size="lg" className="text-lg px-10">
-              Get Started – $99 <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10">
-              Live Demo
-            </Button>
-          </MotionDiv>
+            <Sparkles className="h-12 w-12 mx-auto mb-6 text-purple-400 animate-spin-slow" />
+            <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+              Launch Your Dream SaaS
+            </h1>
+            <p className="text-xl text-gray-300 mb-12">
+              With unusual 3D designs, glass effects and magic animations that make your product irresistible.
+            </p>
+            <ConfettiButton className="text-lg px-10">
+              Get Started – $149 <ArrowRight className="ml-2" />
+            </ConfettiButton>
+          </motion.div>
         </div>
-      </MotionSection>
+      </section>
 
-      {/* Features */}
-      <section className="container mx-auto px-6 py-24">
-        <h2 className="text-center text-4xl font-bold mb-16">Everything you need to ship fast</h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            { icon: Zap, title: "Next.js 14 App Router", desc: "Server Components, Server Actions, Streaming" },
-            { icon: Shield, title: "Supabase Auth + DB", desc: "Email, Google, GitHub login out of the box" },
-            { icon: Rocket, title: "Stripe & Lemon Squeezy", desc: "Subscriptions, one-time, teams – ready" },
-          ].map((f, i) => (
-            <div key={i} className="rounded-2xl border bg-card p-8 text-center hover:shadow-lg transition">
-              <f.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-              <h3 className="font-semibold text-xl mb-2">{f.title}</h3>
-              <p className="text-muted-foreground">{f.desc}</p>
-            </div>
-          ))}
+      {/* Glassmorphism Features with Neomorphic Cards */}
+      <section className="py-32 bg-gray-900">
+        <div className="container mx-auto px-6">
+          <h2 className="text-5xl font-bold text-center mb-20 text-white">
+            Features That Make It Desirable
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: Zap, title: "3D Animations", desc: "Parallax and hover effects that wow users" },
+              { icon: Shield, title: "Glassmorphism UI", desc: "Transparent, blurred elements for modern look" },
+              { icon: Rocket, title: "Confetti Interactions", desc: "Celebration on every action to delight" },
+              { icon: Users, title: "Team Collaboration", desc: "Invites and shared dashboards" },
+              { icon: Star, title: "Custom Gradients", desc: "Unusual colors that stand out" },
+              { icon: Check, title: "Mobile Magic", desc: "Adaptive designs that feel native" },
+            ].map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="rounded-3xl p-8 bg-white/5 backdrop-blur-xl border border-white/10 shadow-neumorphic hover:shadow-neumorphic-hover transition-shadow"
+              >
+                <f.icon className="h-12 w-12 mx-auto mb-6 text-purple-400" />
+                <h3 className="text-xl font-bold mb-4 text-white">{f.title}</h3>
+                <p className="text-gray-400">{f.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </>
